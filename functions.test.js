@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const functions = require('./functions')
 
 // toBe is for primitive types
@@ -36,4 +38,18 @@ test('There is no I in team', () => {
 test('Admin should be in usernames', () => {
     usernames = ['john', 'karen', 'admin'];
     expect(usernames).toContain('admin');
+})
+
+// test('User fetched name shoule be Leanne Graham', () => {
+//     expect.assertions(1);   //expect 1 call
+//     return functions.fetchUsers()
+//         .then(data => {
+//             expect(data.name).toEqual('Leanne Graham');
+//         })
+// })
+
+test('User fetched name shoule be Leanne Graham', async () => {
+    expect.assertions(1);   //expect 1 call
+    const data = await functions.fetchUsers();
+    expect(data.name).toEqual('Leanne Graham');
 })
