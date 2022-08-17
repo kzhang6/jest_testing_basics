@@ -2,6 +2,13 @@ const axios = require('axios');
 
 const functions = require('./functions')
 
+// runs before and after each test
+beforeEach(() => initDatabase());
+afterEach(() => closeDatabase());
+
+const initDatabase = () => console.log('Database Initialized...');
+const closeDatabase = () => console.log('Database Closed...');
+
 // toBe is for primitive types
 test('Adds 2 + 2 to equal 4', () => {
     expect(functions.add(2, 2)).toBe(4);
