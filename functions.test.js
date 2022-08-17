@@ -3,8 +3,12 @@ const axios = require('axios');
 const functions = require('./functions')
 
 // runs before and after each test
-beforeEach(() => initDatabase());
-afterEach(() => closeDatabase());
+// beforeEach(() => initDatabase());
+// afterEach(() => closeDatabase());
+
+// runs before and after ALL tests
+beforeAll(() => initDatabase());
+afterAll(() => closeDatabase());
 
 const initDatabase = () => console.log('Database Initialized...');
 const closeDatabase = () => console.log('Database Closed...');
